@@ -27,7 +27,7 @@ def scrapeData():
             # print(i.text)
             k.append(i.text)
 
-        for i in k:
+        for i in list(set(k)):
             s = s + i + "\n"
         if s != "":
             return s
@@ -39,7 +39,7 @@ def scrapeData():
             # print(i.text)
             k.append(i['href'])
 
-        for i in k:
+        for i in list(set(k)):
             s = s + i + "\n"
         if s != "":
             return s
