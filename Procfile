@@ -1,1 +1,1 @@
-web:gunicorn scrappyApi:app
+web gunicorn app:app
