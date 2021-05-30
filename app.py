@@ -40,5 +40,5 @@ def scrapeData():
 
 # y = scrapeData("https://www.kleverme.com","p")
 # print(y)
-
-app.run()
+if _name_ == '_main_':
+    app.run()
