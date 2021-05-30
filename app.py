@@ -29,8 +29,10 @@ def scrapeData():
 
         for i in k:
             s = s + i + "\n"
-
-        return s
+        if s != "":
+            return s
+        else:
+            return tagname + " : Data not found"
     else:
         y = y = soup.find_all(tagname, href=True)
         for i in y:
@@ -39,7 +41,10 @@ def scrapeData():
 
         for i in k:
             s = s + i + "\n"
-        return s
+        if s != "":
+            return s
+        else:
+            return tagname + " : Data not found"
 
 
 # y = scrapeData("https://www.kleverme.com","p")
