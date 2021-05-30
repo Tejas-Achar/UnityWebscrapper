@@ -12,7 +12,11 @@ def scrapeData():
     tagname = content["tagname"]
     k = []
     s = ""
-    if "https://" or  "http://" not in url:
+    if url.startswith("https://") or url.startswith("http://"):
+        print("Keyword found")
+        pass
+    else:
+        print("Adding keyword")
         url = "https://" + url
     req = requests.get(url)
     soup = BeautifulSoup(req.content, 'html.parser')
