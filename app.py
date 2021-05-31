@@ -23,10 +23,28 @@ def scrapeData():
     soup = BeautifulSoup(req.content, 'html.parser')
     
     if tagname == "email":
-        y = soup.find_all(string = re.compile('^(\w|\.|\_|\-)+[@](\w|\_|\-|\.)+[.]\w{2,3}$'))
-        for i in y:
+        emails = soup.get_text()
+        emails = emails.split("\n")
+        emails1 = []
+        emails2 = []
+        finalemails = []
+        for i in emails:
+            if i != '':
+                emails1.append(i)
+
+        for i in emails1:
+            i = i.replace(" ", "")
             k.append(i)
+
         for i in k:
+            # print(i)
+            if i != "" or i != "\n":
+                emails2.append(i.strip("\r"))
+        for i in emails2:
+            if re.match('^(\w|\.|\_|\-)+[@](\w|\_|\-|\.)+[.]\w{2,3}$', i):
+                finalemails.append(i)
+
+        for i in finalemails:
             s = s + i + "\n"
         if s != "":
             return s
