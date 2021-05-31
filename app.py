@@ -21,7 +21,7 @@ def scrapeData():
     req = requests.get(url)
     soup = BeautifulSoup(req.content, 'html.parser')
             
-    if tagname != "a" and tagname != "email:
+    if tagname != "a":
         y = soup.find_all(tagname)
         for i in y:
             # print(i.text)
