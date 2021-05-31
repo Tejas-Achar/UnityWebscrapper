@@ -41,6 +41,10 @@ def scrapeData():
             if i != "" or i != "\n":
                 i = i.strip("\n")
                 i = i.rstrip("\r")
+                i = i.replace("\xa0","")
+                i = i.replace("'","")
+                i = i.replace(',','')
+                i = i.replace('"','')
                 emails2.append(i)
         for i in emails2:
             if re.match('^(\w|\.|\_|\-)+[@](\w|\_|\-|\.)+[.]\w{2,3}$', i):
