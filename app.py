@@ -24,7 +24,7 @@ def scrapeData():
     
     if tagname == "email":
         emails = soup.get_text()
-        emails = emails.split("\n")
+        emails = emails.split(" ")
         emails1 = []
         emails2 = []
         finalemails = []
@@ -39,7 +39,9 @@ def scrapeData():
         for i in k:
             # print(i)
             if i != "" or i != "\n":
-                emails2.append(i.strip("\r"))
+                i = i.strip("\n")
+                i = i.rstrip("\r")
+                emails2.append(i)
         for i in emails2:
             if re.match('^(\w|\.|\_|\-)+[@](\w|\_|\-|\.)+[.]\w{2,3}$', i):
                 finalemails.append(i)
